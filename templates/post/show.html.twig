@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<div class="card card-side shadow-xl p-20 m-20 bg-cyan-200">
+<figure><img src="{{movie.image}}" alt="Movie"/></figure>
+
+<div class="card-body bg-cyan-400 rounded-xl m-6">
+
+<h2 class="card-title">{{movie.titre}}</h2>
+
+<p>{{movie.author}}</p>
+{# <p>{{movie.année_de_sortie}}</p> #}
+<p>{{movie.categorie}}</p>
+<p>{{movie.description}}</p>
+
+		<div class="card-actions justify-end">
+            {# <a href="{{path('app_update', {'id':movie.id})}}">modifier</a> #}
+            <a href="{{path('app_delete', {'id':movie.id})}}">suprimer</a>
+
+
+			<button class="btn btn-primary">Watch</button>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
