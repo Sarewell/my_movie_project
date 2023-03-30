@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MovieNameRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MovieNameRepository::class)]
@@ -27,6 +28,12 @@ class MovieName
 
     #[ORM\Column]
     private ?int $année_de_sortie = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $categorie = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $resume = null;
 
     public function getId(): ?int
     {
@@ -89,6 +96,30 @@ class MovieName
     public function setAnnéeDeSortie(int $année_de_sortie): self
     {
         $this->année_de_sortie = $année_de_sortie;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(?string $resume): self
+    {
+        $this->resume = $resume;
 
         return $this;
     }
